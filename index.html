@@ -15,22 +15,22 @@
     padding-top: 3rem; /* Add top padding to body to ensure no overlap with the viewport top */
   }
   .stretch {
-    transform: scaleY(3.3); /* Adjust the scale factor as desired */
+    transform: scaleY(3.2); /* Adjust the scale factor as desired */
   }
   .font-bold {
     font-weight: 700;
   }
   /* Additional padding to all stretched elements to prevent overlap */
   .padded {
-    padding: 2.4rem 0; /* Ample padding on top and bottom */
+    padding: 2.25rem 0; /* Ample padding on top and bottom */
   }
 </style>
 </head>
 <body class="flex flex-col items-center justify-center min-h-screen">
-  <div id="city" class="text-6xl md:text-9xl stretch font-bold padded">SAN FRANCISCO</div>
-  <div id="next-hour" class="text-9xl md:text-9xl mt-2 md:mt-4 padded">Next Hour</div>
-  <div id="weather" class="text-5xl md:text-8xl mt-2 md:mt-4 font-bold stretch padded"></div>
-  <div id="weather-description" class="text-xl md:text-3xl mt-2 md:mt-4 padded"></div>
+  <div id="city" class="text-4xl md:text-9xl stretch font-bold padded">SAN FRANCISCO</div>
+  <div id="next-hour" class="text-3xl md:text-7xl mt-2 md:mt-4 padded">Next Hour</div>
+  <div id="weather" class="text-6xl md:text-8xl mt-2 md:mt-4 font-bold stretch padded"></div>
+  <div id="weather-description" class="text-xl md:text-3xl mt-2 md:mt-4 stretch padded"></div>
 <script src="script.js"></script>
 </body>
 </html>
