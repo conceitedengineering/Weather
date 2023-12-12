@@ -11,6 +11,9 @@ function capitalize(str) {
   return str.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
 }
 
+// Example: Accessing an environment variable in Node.js
+console.log("Environment Variable Value:", process.env.WEATHER_API_KEY);
+ 
 function fetchWeather() {
   fetch(url)
     .then(response => {
