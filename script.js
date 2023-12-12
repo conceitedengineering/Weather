@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', fetchWeather);
 
 function fetchWeather() {
   // Use a relative path if your frontend is hosted on the same domain as your serverless function
-  fetch('/api/weather')
+  fetch('https://weather-seven-steel.vercel.app/')
     .then(response => {
       if (!response.ok) {
         throw new Error('Network response was not ok: ' + response.statusText);
