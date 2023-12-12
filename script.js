@@ -1,5 +1,5 @@
 // Replace 'YOUR_API_KEY' with your actual OpenWeather API key
-const apiKey = env.WEATHER_API_KEY;
+const apiKey = env.production.WEATHER_API_KEY;
 const city = 'San Francisco'; // Replace with the city you want the weather for
 const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
