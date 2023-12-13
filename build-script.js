@@ -1,6 +1,5 @@
 const fs = require('fs');
 const path = require('path');
-const fsExtra = require('fs-extra'); // Ensure you have fs-extra installed
 
 // Function to replace a placeholder in script.js
 function replaceApiKeyInScript(scriptPath, apiKey) {
@@ -9,10 +8,18 @@ function replaceApiKeyInScript(scriptPath, apiKey) {
   fs.writeFileSync(scriptPath, scriptContent);
 }
 
-// Function to copy all files to the 'public' directory
+// Function to copy all files to the 'public' directory using native fs module
 function copyToPublicDirectory(source, destination) {
-  fsExtra.ensureDirSync(destination); // Ensure the destination directory exists
-  fsExtra.copySync(source, destination); // Copy everything from source to destination
+  if (!fs.existsSync(destination)){
+    fs.mkdirSync(destination, { recursive: true });
+  }
+
+  const files = fs.readdirSync(source);
+  for (const file of files) {
+    const srcPath = path.join(source, file);
+    const destPath = path.join(destination, file);
+    fs.copyFileSync(srcPath, destPath);
+  }
 }
 
 // Replace placeholder in script.js
