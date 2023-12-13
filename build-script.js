@@ -27,7 +27,7 @@ const scriptFilePath = path.join(__dirname, 'script.js'); // Path to your script
 replaceApiKeyInScript(scriptFilePath, process.env.API_KEY);
 
 // After processing, copy all necessary files to 'public'
-const sourceDirectory = path.join(__dirname, 'your_output_directory'); // Replace with your actual output directory
+//const sourceDirectory = path.join(__dirname, 'your_output_directory'); // Replace with your actual output directory
 const publicDirectory = path.join(__dirname, 'public');
 copyToPublicDirectory(sourceDirectory, publicDirectory);
 
