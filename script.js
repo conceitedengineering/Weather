@@ -12,7 +12,7 @@ function capitalize(str) {
 }
 
 // Example: Accessing an environment variable in Node.js
-console.log("Environment Variable Value:", process.env.WEATHER_API_KEY);
+console.log("Environment Variable Value:", process.env.API_KEY);
  
 function fetchWeather() {
   fetch(url)
