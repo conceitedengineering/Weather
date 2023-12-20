@@ -6,14 +6,22 @@ function capitalize(str) {
 }
 
 function fetchWeather() {
-  fetch('/weather?city=San Francisco') // Request to your server-side endpoint
+  const url = '/weather?city=San Francisco'; // Endpoint URL
+
+  fetch(url)
     .then(response => {
       if (!response.ok) {
-        throw new Error('Network response was not ok ' + response.statusText);
+        // Better error message with status code
+        throw new Error(`HTTP error! Status: ${response.status} - ${response.statusText}`);
       }
       return response.json();
     })
     .then(data => {
+      if (!data || !data.weather || !data.main) {
+        // Handle cases where data might be incomplete
+        throw new Error('Incomplete weather data received');
+      }
+
       const mainWeather = data.weather[0].main;
       const description = data.weather[0].description;
       const temp = Math.round(data.main.temp);
@@ -25,8 +33,11 @@ function fetchWeather() {
       }
     })
     .catch(error => {
-      console.error('There has been a problem with your fetch operation:', error);
+      console.error('Fetch error:', error);
       weatherElement.innerText = 'Weather data unavailable';
+
+      // Optionally, display a more user-friendly error message
+      weatherDescriptionElement.innerText = 'Unable to retrieve weather data. Please try again later.';
     });
 }
 
